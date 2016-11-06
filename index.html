@@ -1,1 +1,175 @@
-Test 2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/text.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/960.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+<link href="css/galleria.css" rel="stylesheet" type="text/css" media="screen"> 
+
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script> 
+<script type="text/javascript" src="jquery.galleria.js"></script> 
+<script type="text/javascript"> 
+jQuery(function($) { 
+
+$('ul.gallery').galleria({
+			history   : true, // activates the history object for bookmarking, back-button etc.
+			clickNext : true, // helper for making the image clickable
+			insert    : '#main_image', // the containing selector for our main image
+			onImage   : function(image,caption,thumb) { // let's add some image effects for demonstration purposes
+				
+				// fade in the image & caption
+				if(! ($.browser.mozilla && navigator.appVersion.indexOf("Win")!=-1) ) { // FF/Win fades large images terribly slow
+					image.css('display','none').fadeIn(1000);
+				}
+				caption.css('display','none').fadeIn(600);
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// fade out inactive thumbnail
+				_li.siblings().children('img.selected').fadeTo(500,0.3);
+				
+				// fade in active thumbnail
+				thumb.fadeTo('fast',1).addClass('selected');
+				
+				// add a title for the clickable image
+				image.attr('title','Next image >>');
+			},
+			onThumb : function(thumb) { // thumbnail effects goes here
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// if thumbnail is active, fade all the way.
+				var _fadeTo = _li.is('.active') ? '1' : '0.3';
+				
+				// fade in the thumbnail when finnished loading
+				thumb.css({display:'none',opacity:_fadeTo}).fadeIn(1000);
+				
+				// hover effects
+				thumb.hover(
+					function() { thumb.fadeTo('fast',1); },
+					function() { _li.not('.active').children('img').fadeTo('fast',0.3); } // don't fade out if the parent is active
+				)
+			}
+		});
+
+
+
+
+
+
+}); 
+</script>
+
+<style media="screen,projection" type="text/css">
+	
+	/* BEGIN DEMO STYLE */
+
+	.gallery li{width:80px;height:60px;border:3px double #111;margin: 0 2px;background:#000; float:left;}
+	.gallery {width:300px;}
+
+    </style>
+
+
+
+
+<title>hibaco studio</title>
+</head>
+
+<body>
+
+
+<div class="container_12" id="topContent">
+    <div class="grid_4">
+            <h1>hibaco studio</h1>
+            <h2>Rieko Radomski Portfolio</h2>
+    </div>
+    <div class="grid_8" id="rightTopContent">
+            <a href="./index.html">home</a> |
+            <a href="./gallery2.html">gallery 2</a> 
+    </div>
+</div>
+    <div class="clear">&nbsp;</div>
+<div class="container_12">
+<div class="grid_4">
+        <ul class="gallery"> 
+            <li class="active"><img src="./my_images/IAAS.png" title="www.asunarokokusai.org" alt="International Academy of Arts and Sciences"></li>
+            <li><img src="./my_images/Brochure_front.png" title="Tri-fold Preschool Brochure Front" alt="International Academy of Arts and Sciences"></li> 
+            <li><img src="./my_images/Brochure_back.png" title="Tri-fold Preschool Brochure Inside" alt="International Academy of Arts and Sciences"></li> 
+            <li><img src="./my_images/brochure2.jpg" title="Preschool Brochure Cover" alt="International Academy of Arts and Sciences"></li> 
+            <li><img src="./my_images/brochure1.jpg" title="Preschool Brochure Content" alt="International Academy of Arts and Sciences"></li> 
+            <li><img src="./my_images/post_card1.jpg" title="Postcard Advertisement Front" alt="International Academy of Arts and Sciences"></li> 
+            <li><img src="./my_images/post_card_back1.jpg" title="Newspaper Advertisement" alt="International Academy of Arts and Sciences"></li> 
+            <li><img src="./my_images/pcjls_cover_b.jpg" title="School Booklet Cover"></li> 
+            <li><img src="./my_images/iaas_logo.png" title="Preschool Logo" alt="International Academy of Arts and Sciences"></li> 
+            
+		</ul>
+        
+	</div>
+	<!-- end .grid_4 -->
+	<div class="grid_8">
+
+			<div id="main_image"></div>
+	</div>
+    </div>
+    <div class="clear">&nbsp;</div>
+    <div class="container_16">
+    <div class="grid_2">
+		<p>&nbsp;</p>
+	</div>
+    
+      <div class="grid_12" id="galleryInformation">
+		<h2>Welcome to hibaco studio</h2>
+        <p>Name: Rieko Radomski
+            <br>
+            Title: Graphic Designer, Web Designer, Illustrator, Editor
+            <br>
+            Location: New York &amp; New Jersey
+            <br>
+           
+       <h2>Experience</h2>
+       <p>Freelance Designer | International Academy of Arts and Sciences, Closter, NJ | 2012 &ndash; Present
+           <br>
+           Created NJ based preschool website <a href="http://www.asunarokokusai.org">www.asunarokokusai.org</a>, promotional products including brochures, postcard and newspaper advertisements, and school logo.
+           <br>
+           <br>
+           Senior Book Editor/Illustrator | Peoples Publishing Group, Saddle Brook, NJ | 2002 &ndash; 2005
+           <br>
+           Supervised all the design aspects of the Measuring Up textbooks and DPT assessment test materials. Created numerous illustrations for textbooks and tests.
+           <br>
+            <br>
+           Designer/Editor/Writer | Miyanjoe International Ltd., New York, NY | 1998 &ndash; 2001
+           <br>
+           Designed the entertainment monthly magazines and guidebooks for Broadway shows.
+          </p>
+       
+       <h2>Skills</h2>
+       <p>Specialities: Adobe Creative Suite (InDesign, Illustrator, Photoshop), HTML and CSS, Hand-Drawing
+          <br>
+          Languages: English &amp; Japanese
+          <br>   
+           <h2>Education</h2>
+       <p>BFA Graphic Design-Letterform | University of Massachusetts Dartmouth, Dartmouth, MA
+           <br>
+        </p>
+       <div id="footer1">
+           <br>
+           &copy; 2016 Rieko Radomski. All Rights Reserved.
+           <br>
+           <br>
+           <br>
+           <a href="http://www.bryantsmith.com">web designer florida</a></div>
+	</div>
+    
+        <div class="grid_2">
+		<p>&nbsp;</p>
+	</div>
+    </div>
+    
+</div>
+
+</body>
+</html>
